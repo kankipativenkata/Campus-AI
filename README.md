@@ -15,31 +15,6 @@ Any university can adopt it by editing config files and uploading its own docume
 
 ---
 
-## Table of contents
-1. [How it works](#1-how-it-works)
-2. [Project structure](#2-project-structure)
-3. [Prerequisites](#3-prerequisites)
-4. [Get a Gemini API key](#4-get-a-gemini-api-key-for-gemma-4)
-5. [Run locally (step by step)](#5-run-locally-step-by-step)
-6. [Log in and try every module](#6-log-in-and-try-every-module)
-7. [Test data files (what each one is for)](#7-test-data-files)
-8. [Run the automated tests](#8-run-the-automated-tests)
-9. [Evaluate RAG quality](#9-evaluate-rag-quality)
-10. [Deploy to Streamlit Community Cloud (live URL)](#10-deploy-to-streamlit-community-cloud-live-url)
-11. [Database options](#11-database-options)
-12. [Local models with Ollama (no API)](#12-local-models-with-ollama-no-api)
-13. [Docker](#13-docker)
-14. [Configuration reference](#14-configuration-reference)
-15. [Adapting it for another university](#15-adapting-it-for-another-university)
-16. [Adding a new module](#16-adding-a-new-module)
-17. [Security and privacy notes](#17-security-and-privacy-notes)
-18. [Troubleshooting](#18-troubleshooting)
-19. [Known limitations (honest list)](#19-known-limitations)
-20. [3-minute demo script](#20-3-minute-demo-script)
-21. [Hackathon submission checklist](#21-hackathon-submission-checklist)
-
----
-
 ## 1. How it works
 
 ```
@@ -146,7 +121,7 @@ You should see `(.venv)` in your prompt.
 
 ### 5.3 Install dependencies
 ```bash
-pip install -r requirements-dev.txt
+pip install -r requirements.txt
 ```
 (Use `requirements.txt` if you do not need to run tests.)
 
@@ -327,7 +302,6 @@ git push -u origin main
 
 ### 10.3 After deployment
 - Open the URL in a **private window**, log in as each demo role, and run the live smoke check (section 8).
-- **Share the URL** with organizers. Put it in your README, your submission form and your slides.
 - To change a secret later: app menu, **Settings**, **Secrets**, save (the app restarts).
 - Every `git push` to `main` redeploys automatically.
 
@@ -445,73 +419,5 @@ def render(user):
 
 ---
 
-## 17. Security and privacy notes
 
-- Passwords are hashed with salted PBKDF2-SHA256. There is no SSO yet; add OAuth/SAML for production.
-- Role checks happen server-side in code: menus are built from the role and retrieval filters by audience in the database query.
-- **Using the Gemini API sends the prompt, retrieved passages and images to Google.** Do not upload real student scripts or personal data to a public demo. Read Google's current terms for your key type (free-tier data handling differs from paid). For sensitive data, use Ollama locally.
-- Uploaded document text is treated as untrusted data and fenced in the prompt, and the model is told to ignore instructions inside it. This reduces, but does not eliminate, prompt injection risk.
-- AI marks are suggestions only, clamped to the rubric and saved only after faculty approval; every AI action is in the audit log.
-- Streamlit Cloud: never put keys in code; use Secrets. The sample accounts are public, so do not store real data on a demo deployment.
 
----
-
-## 18. Troubleshooting
-
-| Symptom | Likely cause and fix |
-|---|---|
-| `ModuleNotFoundError` | Virtual environment not active, or `pip install -r requirements.txt` not run. |
-| `streamlit: command not found` | Activate the venv, or run `python -m streamlit run app.py`. |
-| Port already in use | `streamlit run app.py --server.port 8502` |
-| Login page keeps rejecting | Use the demo credentials exactly; if you changed passwords or the DB, run `python scripts/reset_db.py`. |
-| Banner says "No LLM key configured" | `.env` / secrets missing or key empty. Restart after editing `.env`. |
-| `404 model not found` | Model ID changed. Set `GEMMA_MODEL` (section 4). |
-| `429` / `RESOURCE_EXHAUSTED` | Free-tier rate limit. Wait, or reduce parallel use, or enable billing. |
-| Answers always "not found" | Lower `min_similarity` / `min_term_coverage`; check the Knowledge Base page shows chunks and `embedded` > 0; use **Test a search**. |
-| Telugu questions not found | Telugu needs embeddings (key set) and a multilingual embedding model; keyword-only mode cannot match Telugu to English text. |
-| `embedded` is 0 for every document | Embedding call failed. Admin health page, **Test embeddings** shows the error. Then press **Re-index**. |
-| PDF upload: "No selectable text" | Scanned PDF. Export pages as images and upload those (needs the key for OCR). |
-| Uploaded documents vanished on Streamlit Cloud | SQLite is temporary there. Use `DATABASE_URL` (section 11). |
-| `psycopg2` / SSL error with Postgres | Keep `?sslmode=require` in the URL; use the pooled/session URL for Supabase. |
-| Feedback module says "Evaluation failed: ... valid JSON" | The model returned prose. Click again (the app already retries once), or switch `GEMMA_MODEL`. |
-| App slow on first load | Cold start plus seeding embeddings; later loads are fast (cached). |
-| Camera does not work | Browsers require HTTPS or localhost for the camera. The Cloud URL is HTTPS. |
-
----
-
-## 19. Known limitations
-
-- Live Gemma 4 / Gemini calls are **not covered by the automated tests** (they need a key); only the mocked paths are. Do the live smoke check once after setting your key.
-- Handwriting accuracy depends on image quality. Low-confidence rubric points are flagged for manual review, but marks are never final until a teacher approves.
-- Vector search is in-process (NumPy), not a vector database. Fine for demo and department scale.
-- No SSO, no email, no per-document permissions beyond the audience field.
-- Scanned PDFs must be uploaded as images for OCR.
-- The CO and Bloom tags from the offline rule-based mode are heuristic; AI tags are better but still need faculty review.
-- Sample documents are fictional and not VIT-AP policy.
-
----
-
-## 20. 3-minute demo script
-
-1. **Problem (20 s):** information is scattered, evaluation paperwork is heavy; universities need a reusable open-source tool.
-2. **Admin (40 s):** log in as `admin`, upload a PDF in Knowledge Base Manager, show chunks and embeddings, run **Test a search**.
-3. **Student (60 s):** ask the attendance question (cited answer), then an out-of-scope question (honest "not found"), then Snap-and-Explain with `circuit_rc.png`.
-4. **Faculty (40 s):** Answer-Script Feedback with `Q3_good.png` vs `Q3_poor.png`; then CO-PO Mapper on the sample paper showing repeats and the Excel download.
-5. **Close (20 s):** "One open-source platform, role-based, config-driven. Any university deploys it with one command and customises it by editing YAML. It runs on the Gemini API or fully local with open weights."
-
----
-
-## 21. Hackathon submission checklist
-
-- [ ] Public GitHub repo, Apache-2.0 license present
-- [ ] Live URL (Streamlit Cloud) opens in a private window and demo logins work
-- [ ] `GEMINI_API_KEY` set in Cloud Secrets; **Test LLM call** and **Test embeddings** pass
-- [ ] `DATABASE_URL` (Neon) set if you want uploaded data to persist
-- [ ] `python -m pytest -q` shows 44 passed
-- [ ] Live smoke check done (section 8)
-- [ ] No secrets in the repo (`.env`, `secrets.toml` absent on GitHub)
-- [ ] README top section shows the live URL
-- [ ] Backup demo video recorded
-- [ ] Short note in your submission explaining how Gemma 4 is used (text, vision, embeddings via the Gemini API, local mode through Ollama)
-
-License: Apache-2.0.
