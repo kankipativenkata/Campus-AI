@@ -1,0 +1,28 @@
+# DEMO course catalogue (fictional). Replace with your university's real curriculum.
+# Fields: id, name, credits, prereqs (course ids), skills (tags used by goals.yaml)
+courses:
+  - {id: CSE1001, name: Programming in Python, credits: 3, prereqs: [], skills: [python, programming]}
+  - {id: CSE1002, name: Discrete Mathematics, credits: 3, prereqs: [], skills: [discrete_math]}
+  - {id: MAT1001, name: Linear Algebra and Calculus, credits: 4, prereqs: [], skills: [linear_algebra, calculus]}
+  - {id: HUM1001, name: Communication Skills, credits: 2, prereqs: [], skills: [communication]}
+  - {id: MAT2001, name: Probability and Statistics, credits: 3, prereqs: [MAT1001], skills: [statistics, probability]}
+  - {id: CSE2001, name: Data Structures, credits: 4, prereqs: [CSE1001], skills: [dsa]}
+  - {id: CSE2002, name: Algorithms, credits: 3, prereqs: [CSE2001, CSE1002], skills: [algorithms, dsa]}
+  - {id: CSE2003, name: Database Systems, credits: 3, prereqs: [CSE1001], skills: [sql, databases]}
+  - {id: CSE2004, name: Operating Systems, credits: 3, prereqs: [CSE2001], skills: [os, linux]}
+  - {id: CSE2005, name: Computer Networks, credits: 3, prereqs: [CSE1001], skills: [networking]}
+  - {id: CSE3013, name: Software Engineering, credits: 3, prereqs: [CSE1001], skills: [software_engineering, git, testing]}
+  - {id: CSE3001, name: Machine Learning, credits: 4, prereqs: [MAT2001, CSE1001], skills: [ml, scikit_learn]}
+  - {id: CSE3002, name: Deep Learning, credits: 3, prereqs: [CSE3001], skills: [deep_learning, pytorch]}
+  - {id: CSE3003, name: Natural Language Processing, credits: 3, prereqs: [CSE3001], skills: [nlp]}
+  - {id: CSE3004, name: Computer Vision, credits: 3, prereqs: [CSE3002], skills: [computer_vision]}
+  - {id: CSE3005, name: Data Mining and Visualization, credits: 3, prereqs: [MAT2001, CSE2003], skills: [data_analysis, visualization, pandas]}
+  - {id: CSE3006, name: Web Technologies, credits: 3, prereqs: [CSE1001], skills: [html_css, javascript, web]}
+  - {id: CSE3007, name: Full-Stack Development, credits: 4, prereqs: [CSE3006, CSE2003], skills: [react, nodejs, rest_apis, web]}
+  - {id: CSE3008, name: Cloud Computing, credits: 3, prereqs: [CSE2004, CSE2005], skills: [cloud, docker, aws]}
+  - {id: CSE3009, name: DevOps and CI/CD, credits: 3, prereqs: [CSE3008], skills: [devops, ci_cd, docker, linux]}
+  - {id: CSE3010, name: Information Security, credits: 3, prereqs: [CSE2005], skills: [security, cryptography]}
+  - {id: CSE3011, name: Ethical Hacking and Pen Testing, credits: 3, prereqs: [CSE3010, CSE2004], skills: [pentesting, security]}
+  - {id: CSE3012, name: Big Data Analytics, credits: 3, prereqs: [CSE2003], skills: [spark, data_engineering]}
+  - {id: CSE4002, name: MLOps, credits: 3, prereqs: [CSE3001, CSE3009], skills: [mlops, docker, ci_cd]}
+  - {id: CSE4001, name: Capstone Project, credits: 6, prereqs: [CSE3013], skills: [projects, teamwork]}

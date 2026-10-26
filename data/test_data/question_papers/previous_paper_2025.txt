@@ -1,0 +1,9 @@
+DATA STRUCTURES (CSE1001) - MID SEMESTER EXAMINATION 2025 (FICTIONAL SAMPLE)
+Total: 40 marks
+
+Q1. Define a stack. (2 marks)
+Q2. What is a circular queue? (2 marks)
+Q3. Differentiate between a singly linked list and a doubly linked list. (6 marks)
+Q4. Explain the working of selection sort with an example. (6 marks)
+Q5. Write a program to reverse a linked list. (8 marks)
+Q6. Analyze the best, average and worst case complexity of quick sort. (8 marks)

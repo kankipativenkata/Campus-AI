@@ -1,0 +1,12 @@
+extract: |
+  Extract every question from this question paper. Return JSON:
+  {{"questions": [{{"no": "1", "text": "question text without the marks", "marks": 5}}]}}
+  Keep numbering as printed. If marks are missing use 1.
+tag: |
+  Course outcomes:
+  {cos}
+  Bloom's levels: Remember, Understand, Apply, Analyze, Evaluate, Create.
+  For each question below choose the single best course outcome id and Bloom's level.
+  Questions:
+  {questions}
+  Return JSON: {{"tags": [{{"no": "1", "co": "CO1", "bloom": "Remember", "reason": "short"}}]}}

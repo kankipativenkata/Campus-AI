@@ -1,0 +1,9 @@
+{"nodes":[
+ {"id":"n1","label":"Start","type":"start"},
+ {"id":"n2","label":"Read n","type":"io"},
+ {"id":"n3","label":"n > 0 ?","type":"decision"},
+ {"id":"n4","label":"Print positive","type":"process"},
+ {"id":"n5","label":"Increment counter","type":"process"}],
+ "edges":[
+ {"from":"n1","to":"n2","label":""},{"from":"n2","to":"n3","label":""},
+ {"from":"n3","to":"n4","label":"Yes"}]}

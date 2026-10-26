@@ -1,0 +1,2 @@
+A stack is a data structure that works like a queue where the first element inserted is removed first (FIFO).
+You can insert in the middle and delete from the front. It is used in printing jobs. The time taken is O(n).

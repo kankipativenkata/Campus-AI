@@ -1,0 +1,3 @@
+A stack is a data structure where we add and remove items from one end only, the last item added comes out first.
+Push means inserting an item at the top, like putting a plate on a pile.
+One use of a stack is the back button in a web browser.

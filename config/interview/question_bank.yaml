@@ -1,0 +1,101 @@
+# Interview question bank. key_points: what a good answer covers. keywords: words that signal the point was covered.
+# Add your own questions here (Admin, Config Manager).
+categories:
+  "Viva: Data Structures":
+    mode: viva
+    questions:
+      - id: ds1
+        text: What is a stack and where is it used?
+        key_points:
+          - {text: "LIFO: last in, first out", keywords: [lifo, last, first]}
+          - {text: "Push and pop at the top", keywords: [push, pop, top]}
+          - {text: "Applications: undo, recursion, expression evaluation", keywords: [undo, recursion, expression, browser, call]}
+      - id: ds2
+        text: Explain binary search and its time complexity.
+        key_points:
+          - {text: "Works on a sorted array", keywords: [sorted]}
+          - {text: "Compare with middle, halve the range", keywords: [middle, half, halve, mid]}
+          - {text: "O(log n)", keywords: [log, logarithmic]}
+      - id: ds3
+        text: What is the difference between an array and a linked list?
+        key_points:
+          - {text: "Array is contiguous memory with O(1) index access", keywords: [contiguous, index, constant]}
+          - {text: "Linked list uses nodes and pointers, O(1) insertion at known node", keywords: [node, pointer, insertion]}
+          - {text: "Trade-off: memory overhead and access time", keywords: [overhead, trade, access, memory]}
+      - id: ds4
+        text: What is a hash table and how are collisions handled?
+        key_points:
+          - {text: "Hash function maps keys to buckets", keywords: [hash, function, bucket, key]}
+          - {text: "Collision handling: chaining or open addressing", keywords: [chaining, probing, open, addressing, collision]}
+          - {text: "Average O(1) lookup", keywords: [constant, average, lookup]}
+  "Viva: Databases":
+    mode: viva
+    questions:
+      - id: db1
+        text: What is normalization and why do we do it?
+        key_points:
+          - {text: "Organising tables to reduce redundancy", keywords: [redundancy, duplicate, organise, organize]}
+          - {text: "Avoids update, insert and delete anomalies", keywords: [anomaly, anomalies, update, insert, delete]}
+          - {text: "Normal forms such as 1NF, 2NF, 3NF", keywords: [1nf, 2nf, 3nf, normal, form]}
+      - id: db2
+        text: Explain ACID properties.
+        key_points:
+          - {text: "Atomicity: all or nothing", keywords: [atomicity, atomic, nothing]}
+          - {text: "Consistency and Isolation", keywords: [consistency, isolation]}
+          - {text: "Durability: committed data survives failures", keywords: [durability, durable, committed, survive]}
+      - id: db3
+        text: What is the difference between a primary key and a foreign key?
+        key_points:
+          - {text: "Primary key uniquely identifies a row, not null", keywords: [unique, uniquely, identifies, null]}
+          - {text: "Foreign key references a primary key in another table", keywords: [references, another, table, relationship]}
+  "Viva: Machine Learning":
+    mode: viva
+    questions:
+      - id: ml1
+        text: What is overfitting and how can you reduce it?
+        key_points:
+          - {text: "Model fits training noise, poor on new data", keywords: [training, noise, generalize, generalise, unseen, new]}
+          - {text: "Regularization", keywords: [regularization, regularisation, l1, l2, dropout]}
+          - {text: "More data, simpler model or cross-validation", keywords: [data, simpler, cross, validation, early, stopping]}
+      - id: ml2
+        text: Explain the difference between supervised and unsupervised learning.
+        key_points:
+          - {text: "Supervised uses labelled data", keywords: [labelled, labeled, label, labels]}
+          - {text: "Unsupervised finds structure without labels", keywords: [clustering, structure, unlabelled, unlabeled, without]}
+          - {text: "Examples of each", keywords: [classification, regression, kmeans, k-means, clustering]}
+  "Placement: HR":
+    mode: placement
+    questions:
+      - id: hr1
+        text: Tell me about yourself.
+        key_points:
+          - {text: "Education and background", keywords: [studying, student, degree, btech, mca, mtech, university, college]}
+          - {text: "Skills or projects", keywords: [project, skills, built, developed, python, learned]}
+          - {text: "Goal or why this role", keywords: [goal, want, interested, aspire, career, role]}
+      - id: hr2
+        text: Describe a challenge you faced in a team project and how you handled it.
+        key_points:
+          - {text: "Situation: a specific challenge", keywords: [challenge, problem, situation, project, deadline, conflict]}
+          - {text: "Action: what you personally did", keywords: [i, decided, organised, organized, talked, fixed, led, learned]}
+          - {text: "Result: outcome or lesson", keywords: [result, outcome, finished, delivered, learned, lesson, improved]}
+      - id: hr3
+        text: What are your strengths and weaknesses?
+        key_points:
+          - {text: "A real strength with an example", keywords: [strength, example, good, skilled]}
+          - {text: "An honest weakness", keywords: [weakness, struggle, difficult, working]}
+          - {text: "Steps to improve the weakness", keywords: [improve, improving, practice, learning, working]}
+  "Placement: Technical":
+    mode: placement
+    questions:
+      - id: pt1
+        text: Explain a project you are proud of, including your role and the technologies you used.
+        key_points:
+          - {text: "Problem the project solves", keywords: [problem, solves, purpose, goal, aim]}
+          - {text: "Your own role", keywords: [role, my, i, responsible, implemented, built]}
+          - {text: "Technologies and results", keywords: [python, java, react, sql, flask, model, accuracy, deployed, used]}
+      - id: pt2
+        text: How do you approach debugging a program that gives wrong output?
+        key_points:
+          - {text: "Reproduce the problem and read error or output", keywords: [reproduce, error, output, test, read]}
+          - {text: "Isolate the cause with prints, debugger or small tests", keywords: [print, debugger, breakpoint, isolate, small, narrow]}
+          - {text: "Fix, then verify with tests", keywords: [fix, verify, test, regression, again]}

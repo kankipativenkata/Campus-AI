@@ -1,0 +1,24 @@
+course: CSE1001
+title: Data Structures (demo outcomes)
+cos:
+  - {id: CO1, text: "Define and explain basic linear data structures such as stacks, queues and linked lists."}
+  - {id: CO2, text: "Apply tree and graph algorithms such as traversal, binary search tree operations and shortest paths to solve problems."}
+  - {id: CO3, text: "Analyze time and space complexity of searching and sorting algorithms."}
+  - {id: CO4, text: "Design and evaluate hashing techniques and justify the selection of data structures."}
+pos:
+  PO1: Engineering knowledge
+  PO2: Problem analysis
+  PO3: Design/development of solutions
+  PO4: Conduct investigations of complex problems
+  PO5: Modern tool usage
+  PO12: Life-long learning
+# CO -> PO mapping level: 1 = low, 2 = medium, 3 = high
+matrix:
+  CO1: {PO1: 3, PO2: 2}
+  CO2: {PO1: 2, PO2: 3, PO3: 2}
+  CO3: {PO1: 2, PO2: 3, PO4: 2}
+  CO4: {PO2: 2, PO3: 3, PO5: 1}
+# Bloom's distribution targets (percent of total marks)
+bloom_targets:
+  Remember: {max_pct: 30}
+  Apply: {min_pct: 20}

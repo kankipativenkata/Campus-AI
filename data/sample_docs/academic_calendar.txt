@@ -1,0 +1,10 @@
+DEMO UNIVERSITY ACADEMIC CALENDAR, FALL SEMESTER 2026 (FICTIONAL SAMPLE DATA)
+
+Classwork begins: 3 August 2026.
+Continuous Assessment Test 1: 14 to 18 September 2026.
+Mid-semester examinations: 2 to 6 November 2026.
+Last instructional day: 11 December 2026.
+End-semester examinations: 15 December 2026 to 2 January 2027.
+Winter vacation: 4 January 2027 to 17 January 2027.
+Result publication: 20 January 2027.
+Holidays: Gandhi Jayanti on 2 October 2026 and Diwali break from 8 to 10 November 2026.

@@ -1,0 +1,2 @@
+Binary search works only on a sorted array. It compares the key with the middle element. If equal, the search ends; if the key is smaller it continues in the left half, otherwise in the right half, halving the range each time.
+Time complexity is O(log n). Example: searching 23 in [5, 12, 23, 40, 56]: mid is 23, found in one step.

@@ -1,0 +1,20 @@
+course: CSE1001
+title: Data Structures (demo rubric)
+questions:
+  - id: Q3
+    text: "Explain the stack data structure with push and pop operations, give its time complexity and one application."
+    max_marks: 10
+    points:
+      - {id: p1, text: "Defines a stack and states its LIFO (last in, first out) property", marks: 2}
+      - {id: p2, text: "Explains the push operation with an example", marks: 2}
+      - {id: p3, text: "Explains the pop operation with an example", marks: 2}
+      - {id: p4, text: "States O(1) time complexity for push and pop", marks: 2}
+      - {id: p5, text: "Mentions at least one correct application (undo, recursion, expression evaluation, etc.)", marks: 2}
+  - id: Q5
+    text: "Describe binary search and state its time complexity."
+    max_marks: 10
+    points:
+      - {id: p1, text: "States that the array must be sorted", marks: 2}
+      - {id: p2, text: "Describes comparing with the middle element and halving the search range", marks: 4}
+      - {id: p3, text: "States O(log n) time complexity", marks: 2}
+      - {id: p4, text: "Gives a worked example or algorithm/pseudocode", marks: 2}

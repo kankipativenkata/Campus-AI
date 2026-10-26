@@ -1,0 +1,45 @@
+# DEMO placement history (FICTIONAL numbers and companies). Replace with your placement cell's real data.
+# history.applicants / history.shortlisted = totals over past drives. typical_applicant = average profile of past applicants.
+prior: {rate: 0.15, strength: 4}     # weak prior: "about 15% get shortlisted", worth 4 pseudo-applicants
+skills_catalog: [dsa, python, java, sql, web, ml, cloud, system_design, communication, aptitude, statistics, excel, linux, git]
+companies:
+  - id: demo_product
+    name: Demo Product Co (fictional)
+    role: Software Engineer
+    min_cgpa: 7.5
+    max_backlogs: 0
+    required_skills: {dsa: 3, python: 1.5, java: 1.5, sql: 1, system_design: 1.5, communication: 1}
+    history: {applicants: 220, shortlisted: 30, years: "demo 2023-2025"}
+    typical_applicant: {cgpa: 7.9, skill_match: 0.40, coding: 0.40, projects: 0.40, internship: 0.20, comm: 0.0}
+  - id: demo_services
+    name: Demo IT Services Ltd (fictional)
+    role: Systems Engineer
+    min_cgpa: 6.0
+    max_backlogs: 1
+    required_skills: {aptitude: 2, communication: 2, java: 1.5, sql: 1, dsa: 1}
+    history: {applicants: 640, shortlisted: 250, years: "demo 2023-2025"}
+    typical_applicant: {cgpa: 7.2, skill_match: 0.35, coding: 0.25, projects: 0.30, internship: 0.10, comm: 0.0}
+  - id: demo_analytics
+    name: Demo Analytics Inc (fictional)
+    role: Data Analyst
+    min_cgpa: 7.0
+    max_backlogs: 0
+    required_skills: {sql: 3, python: 2, statistics: 2, excel: 1, communication: 1.5}
+    history: {applicants: 180, shortlisted: 28, years: "demo 2023-2025"}
+    typical_applicant: {cgpa: 7.7, skill_match: 0.40, coding: 0.30, projects: 0.40, internship: 0.20, comm: 0.0}
+  - id: demo_cloud
+    name: Demo Cloud Systems (fictional)
+    role: Cloud Engineer
+    min_cgpa: 7.0
+    max_backlogs: 0
+    required_skills: {cloud: 3, linux: 2, python: 1.5, git: 1, dsa: 1}
+    history: {applicants: 120, shortlisted: 14, years: "demo 2024-2025"}
+    typical_applicant: {cgpa: 7.6, skill_match: 0.30, coding: 0.35, projects: 0.35, internship: 0.15, comm: 0.0}
+  - id: demo_startup
+    name: Demo Startup Labs (fictional, little history)
+    role: ML Engineer
+    min_cgpa: 7.5
+    max_backlogs: 0
+    required_skills: {ml: 3, python: 2, dsa: 1.5, statistics: 1, git: 1}
+    history: {applicants: 30, shortlisted: 3, years: "demo 2025"}
+    typical_applicant: {cgpa: 8.0, skill_match: 0.35, coding: 0.40, projects: 0.50, internship: 0.25, comm: 0.0}

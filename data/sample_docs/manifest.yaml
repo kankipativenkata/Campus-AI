@@ -1,0 +1,10 @@
+# Documents loaded on first run when seed_sample_data is true. ALL CONTENT IS FICTIONAL.
+documents:
+  - {file: academic_regulations.txt, title: "Academic Regulations", category: academic, audience: all, version: "2.0", effective_date: "2026-07-01"}
+  - {file: hostel_rules.md, title: "Hostel Rules", category: hostel, audience: all, version: "1.4", effective_date: "2026-08-01"}
+  - {file: fee_structure.csv, title: "Fee Structure 2026", category: fees, audience: all, version: "1.0", effective_date: "2026-07-15"}
+  - {file: academic_calendar.txt, title: "Academic Calendar Fall 2026", category: academic, audience: all, version: "1.0", effective_date: "2026-07-01"}
+  - {file: placement_faq.md, title: "Placement FAQ", category: placement, audience: students, version: "1.0", effective_date: "2026-08-01"}
+  - {file: club_directory.docx, title: "Club Directory", category: general, audience: all, version: "1.0", effective_date: "2026-08-01"}
+  - {file: scholarship_policy.pdf, title: "Merit Scholarship Policy", category: fees, audience: all, version: "1.1", effective_date: "2026-07-01"}
+  - {file: faculty_leave_policy.txt, title: "Faculty Leave Policy", category: hr, audience: faculty, version: "1.0", effective_date: "2026-07-01"}

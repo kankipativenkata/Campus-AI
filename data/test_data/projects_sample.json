@@ -1,0 +1,13 @@
+{"profiles": [
+  {"username": "seed_a", "name": "Demo Student A", "skills": ["python", "pytorch", "opencv"], "interests": ["AI / ML", "Healthcare"], "open_to_team": true},
+  {"username": "seed_b", "name": "Demo Student B", "skills": ["react", "javascript", "html-css", "firebase"], "interests": ["Web", "EdTech"], "open_to_team": true},
+  {"username": "seed_c", "name": "Demo Student C", "skills": ["arduino", "esp32", "c++"], "interests": ["IoT / Embedded"], "open_to_team": true},
+  {"username": "seed_d", "name": "Demo Student D", "skills": ["python", "flask", "sql", "docker"], "interests": ["Web", "Cloud / DevOps"], "open_to_team": false},
+  {"username": "seed_e", "name": "Demo Student E", "skills": ["python", "llm", "fastapi"], "interests": ["AI / ML", "EdTech"], "open_to_team": true}],
+ "projects": [
+  {"owner": "seed_a", "owner_name": "Demo Student A", "title": "Brain tumor MRI classifier", "link": "", "description": "A deep learning model in PyTorch that classifies MRI scans into tumor types, with OpenCV preprocessing and a confusion-matrix report for medical diagnosis support."},
+  {"owner": "seed_b", "owner_name": "Demo Student B", "title": "Campus event portal", "link": "", "description": "A React web app with Firebase authentication where clubs post events and students register. Includes a calendar view and email reminders."},
+  {"owner": "seed_c", "owner_name": "Demo Student C", "title": "Smart hostel energy monitor", "link": "", "description": "An ESP32 and Arduino IoT system with current sensors that tracks electricity use per room and sends alerts to a dashboard."},
+  {"owner": "seed_d", "owner_name": "Demo Student D", "title": "Library book tracker", "link": "", "description": "A Flask and SQL web application with Docker deployment for issuing, returning and searching library books."},
+  {"owner": "seed_e", "owner_name": "Demo Student E", "title": "Syllabus Q&A chatbot", "link": "", "description": "A retrieval-augmented generation chatbot using a large language model and FastAPI that answers student questions from course syllabus PDFs."},
+  {"owner": "seed_a", "owner_name": "Demo Student A", "title": "Chest X-ray pneumonia detector", "link": "", "description": "A PyTorch convolutional neural network that detects pneumonia from chest X-ray images, with data augmentation and explainability heatmaps for health diagnosis."}]}

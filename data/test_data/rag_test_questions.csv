@@ -1,0 +1,22 @@
+question,role,expected_keyword,should_answer,requires_embeddings
+What is the minimum attendance for exam eligibility?,student,75,yes,no
+Can attendance shortage be condoned?,student,condonation,yes,no
+What is the condonation fee per course?,student,500,yes,no
+Which marks range gets grade A?,student,80 to 89,yes,no
+Within how many days can I apply for re-evaluation?,student,7 days,yes,no
+What time do hostel gates close?,student,9:30,yes,no
+When can parents visit the hostel?,student,Sunday,yes,no
+When is breakfast served in the mess?,student,7:30,yes,no
+What is the B.Tech first year tuition fee?,student,195000,yes,no
+What is the last date to pay MCA fees?,student,31 August,yes,no
+When do mid-semester exams start?,student,2 to 6 November,yes,no
+When does winter vacation begin?,student,4 January,yes,no
+What is the minimum CGPA for placements?,student,7.0,yes,no
+Which day does the Math Club meet?,student,Wednesday,yes,no
+What waiver do toppers get in the scholarship?,student,50%,yes,no
+How many casual leaves do faculty get?,faculty,12 days,yes,no
+How many casual leaves do faculty get?,student,12 days,no,no
+What is the placement dress code?,faculty,Formal,yes,no
+Who won the football world cup in 2022?,student,,no,no
+What is the capital of France?,student,,no,no
+హాజరు శాతం ఎంత ఉండాలి?,student,75,yes,yes

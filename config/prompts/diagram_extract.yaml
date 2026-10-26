@@ -1,0 +1,16 @@
+user: |
+  The image is a {dtype}. Extract its structure as JSON:
+  {{"nodes": [{{"id": "n1", "label": "text in the shape", "type": "<type>"}}],
+    "edges": [{{"from": "n1", "to": "n2", "label": "text on the arrow, or empty"}}],
+    "notes": "anything unclear"}}
+  Allowed node types: for a flowchart use start, end, process, decision, io; for an ER diagram use entity,
+  attribute, key, relationship; for a UML class diagram use class; otherwise use process.
+  Use short unique ids (n1, n2, ...). Include EVERY shape and EVERY arrow/line you can see. Do not fix mistakes:
+  report the diagram exactly as drawn, including missing arrows or missing terminators.
+suggest: |
+  A student drew a {dtype}. Extracted structure:
+  {structure}
+  Automatic rule checks found:
+  {findings}
+  Give friendly, specific suggestions to fix the problems and improve the diagram.
+  Return JSON: {{"suggestions": [str, ...], "summary": "two sentences"}}

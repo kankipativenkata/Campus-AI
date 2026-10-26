@@ -1,0 +1,8 @@
+{"nodes":[
+ {"id":"e1","label":"Student","type":"entity"},{"id":"e2","label":"Course","type":"entity"},
+ {"id":"r1","label":"Enrolls","type":"relationship"},
+ {"id":"a1","label":"RegNo (PK)","type":"key"},{"id":"a2","label":"Name","type":"attribute"},
+ {"id":"a3","label":"CourseCode (PK)","type":"key"}],
+ "edges":[
+ {"from":"e1","to":"a1","label":""},{"from":"e1","to":"a2","label":""},{"from":"e2","to":"a3","label":""},
+ {"from":"e1","to":"r1","label":"N"},{"from":"r1","to":"e2","label":"M"}]}

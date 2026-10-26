@@ -1,0 +1,5 @@
+A stack is a linear data structure that follows the LIFO principle, that is last in, first out. The element inserted last is removed first.
+Push adds an element on top of the stack. Example: pushing 10 and then 20 onto an empty stack gives 20 on top.
+Pop removes the top element. Example: after popping from [10, 20], 20 is removed and 10 is the new top.
+Both push and pop take O(1) constant time because only the top pointer changes.
+Applications: undo operation in editors, evaluating postfix expressions and function call management in recursion.

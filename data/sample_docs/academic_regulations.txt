@@ -1,0 +1,19 @@
+DEMO UNIVERSITY - ACADEMIC REGULATIONS (FICTIONAL SAMPLE DATA)
+Version 2.0, effective 1 July 2026
+
+1. Attendance
+A student must have a minimum of 75% attendance in each course to be eligible to write the end-semester examination.
+Students with attendance between 65% and 74% may apply for condonation of attendance shortage. A valid medical certificate or an approved participation letter is required. A condonation fee of Rs. 500 per course is charged.
+Students with attendance below 65% are detained in that course and must repeat it in the next offering.
+
+2. Grading
+Grades are awarded on a 10-point scale. Grade S: 90 to 100 marks (10 grade points). Grade A: 80 to 89 marks (9 grade points). Grade B: 70 to 79 marks (8 grade points). Grade C: 60 to 69 marks (7 grade points). Grade D: 50 to 59 marks (6 grade points). Grade E: 40 to 49 marks (5 grade points). Below 40 marks is Grade F (fail).
+
+3. Re-evaluation
+A student may apply for re-evaluation of an end-semester answer script within 7 days of the publication of results. The re-evaluation fee is Rs. 1000 per course. The revised marks, if different, replace the original marks.
+
+4. Continuous Assessment
+Each course has continuous assessment worth 60 marks (two Continuous Assessment Tests, quizzes and assignments) and the end-semester examination worth 40 marks. A student must score at least 40% in the end-semester examination to pass the course.
+
+5. Academic Integrity
+Plagiarism in assignments, lab records or examinations is treated as malpractice. The first offence results in zero marks for that component. A second offence results in a failing grade for the course.

@@ -1,0 +1,41 @@
+# Each goal: required skills with importance weights, optional self-study hints, projects and certifications.
+goals:
+  ML Engineer:
+    description: Build, train and deploy machine learning systems.
+    skills: {python: 2, ml: 3, deep_learning: 3, statistics: 2, linear_algebra: 2, pytorch: 2, dsa: 1.5, sql: 1, mlops: 1.5, docker: 1, git: 1, communication: 1}
+    self_study:
+      git: Learn Git and GitHub through a free interactive tutorial; push every project.
+    projects: [Image classifier with a web demo, End-to-end ML pipeline with experiment tracking, Fine-tune a small open model on a custom dataset]
+    certifications: [Any recognised ML/TensorFlow/PyTorch practitioner certificate (optional)]
+  Data Analyst:
+    description: Turn data into decisions with SQL, statistics and dashboards.
+    skills: {sql: 3, python: 2, pandas: 2, statistics: 2, visualization: 3, data_analysis: 3, communication: 1.5, databases: 1}
+    self_study: {}
+    projects: [Campus data dashboard, Sales or placement trend analysis with a written report, A/B test analysis notebook]
+    certifications: [Any recognised data analytics certificate (optional)]
+  Full-Stack Developer:
+    description: Design and ship complete web applications.
+    skills: {javascript: 3, react: 3, nodejs: 2.5, rest_apis: 2, sql: 2, html_css: 2, git: 1.5, dsa: 1.5, testing: 1}
+    self_study: {}
+    projects: [Authenticated CRUD app with deployment, Real-time chat or dashboard, Open-source contribution]
+    certifications: [Optional cloud or web developer certificate]
+  Cloud / DevOps Engineer:
+    description: Run reliable systems on the cloud with automation.
+    skills: {linux: 3, docker: 3, cloud: 3, aws: 2, ci_cd: 3, devops: 3, networking: 2, git: 1.5, python: 1}
+    self_study: {}
+    projects: [CI/CD pipeline for a sample app, Infrastructure deployed with a script, Monitoring dashboard for a service]
+    certifications: [Entry-level cloud practitioner certificate from a major provider (optional)]
+  Cybersecurity Analyst:
+    description: Protect systems and find weaknesses before attackers do.
+    skills: {security: 3, networking: 3, cryptography: 2, pentesting: 3, linux: 2, os: 1.5, python: 1}
+    self_study: {}
+    projects: [Home-lab vulnerability assessment report, Capture-the-flag write-ups, Secure login system review]
+    certifications: [Entry-level security certificate (optional)]
+  AI / LLM Engineer:
+    description: Build applications on top of language models.
+    skills: {python: 2, nlp: 3, deep_learning: 3, pytorch: 2, ml: 2, rest_apis: 1.5, docker: 1, projects: 1, communication: 1, prompt_engineering: 2, rag: 2}
+    self_study:
+      prompt_engineering: Practise prompt design and evaluation with a small test set of your own.
+      rag: Build a small retrieval-augmented chatbot over your own documents (this platform is an example).
+    projects: [RAG assistant over college documents, Evaluation harness comparing prompts, Fine-tuning experiment with a small open model]
+    certifications: []

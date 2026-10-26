@@ -1,0 +1,15 @@
+DATA STRUCTURES (CSE1001) - MID SEMESTER EXAMINATION 2026 (FICTIONAL SAMPLE)
+Time: 90 minutes    Total: 54 marks
+
+Section A
+Q1. Define a stack. (2 marks)
+Q2. List any four applications of a queue. (2 marks)
+Q3. State the time complexity of binary search. (2 marks)
+
+Section B
+Q4. Explain the push and pop operations on a stack with an example. (6 marks)
+Q5. Differentiate between a singly linked list and a doubly linked list. (6 marks)
+Q6. Write an algorithm to insert a node in a binary search tree and trace it for 50, 30, 70, 20, 40. (10 marks)
+Q7. Apply Dijkstra's algorithm on the given graph to find the shortest path from node A. (10 marks)
+Q8. Compare quick sort and merge sort and justify which is better for linked lists. (8 marks)
+Q9. Design a hash table with chaining to resolve collisions and evaluate its load factor behaviour. (8 marks)
