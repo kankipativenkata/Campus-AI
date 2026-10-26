@@ -42,19 +42,59 @@ def _gemini(key: str):
     return genai.Client(api_key=key)
 
 
-def _retry(fn, attempts: int = 3):
+RETRYABLE = ("429", "500", "502", "503", "504", "INTERNAL", "UNAVAILABLE", "RESOURCE_EXHAUSTED", "DEADLINE",
+             "timed out", "overloaded", "Connection")
+NO_FALLBACK = ("API key", "API_KEY", "PERMISSION_DENIED", "UNAUTHENTICATED", "401", "403")
+
+
+def _retry(fn, attempts: int = 4):
+    """Retry transient server/quota errors (incl. 500 INTERNAL) with backoff: 1s, 2s, 4s."""
     last = None
     for i in range(attempts):
         try:
             return fn()
         except Exception as e:  # noqa: BLE001
             last = e
-            msg = str(e)
-            if any(t in msg for t in ("429", "503", "UNAVAILABLE", "RESOURCE_EXHAUSTED", "timed out")):
+            if any(t in str(e) for t in RETRYABLE) and i < attempts - 1:
                 time.sleep(2 ** i)
                 continue
             break
     raise LLMError(str(last))
+
+
+def _friendly(msg: str) -> str:
+    short = re.sub(r"\s+", " ", msg)[:160]
+    if any(k in msg for k in ("API key", "API_KEY", "PERMISSION_DENIED", "UNAUTHENTICATED")):
+        return f"The API key was rejected. Check GEMINI_API_KEY in Secrets. ({short})"
+    if "429" in msg or "RESOURCE_EXHAUSTED" in msg:
+        return f"Rate limit or quota reached. Wait a minute and try again, or enable billing on the key. ({short})"
+    if "404" in msg or "NOT_FOUND" in msg:
+        return f"Model not found. Set GEMMA_MODEL (and FALLBACK_MODEL) to a model your key can use. ({short})"
+    if any(k in msg for k in ("500", "INTERNAL", "502", "503", "504", "UNAVAILABLE")):
+        return ("Google's model service returned a temporary internal error, even after retries and the fallback model. "
+                f"Try again in a minute; if it keeps happening with images, upload a smaller, clearer image. ({short})")
+    return short or "Unknown model error."
+
+
+def _prep_image(data: bytes, mime: str, max_side: int = 1600) -> Image:
+    """Phone photos are huge; oversized images are a common cause of 500s. Downscale only when needed."""
+    try:
+        import io
+        from PIL import Image as PILImage, ImageOps
+        if len(data) < 3_000_000:
+            im = PILImage.open(io.BytesIO(data))
+            if max(im.size) <= max_side:
+                return data, mime
+        im = ImageOps.exif_transpose(PILImage.open(io.BytesIO(data)))
+        im.thumbnail((max_side, max_side))
+        buf = io.BytesIO()
+        if im.mode in ("L", "1", "P") and mime == "image/png":
+            im.convert("L").save(buf, "PNG", optimize=True)
+            return buf.getvalue(), "image/png"
+        im.convert("RGB").save(buf, "JPEG", quality=92)
+        return buf.getvalue(), "image/jpeg"
+    except Exception:  # noqa: BLE001
+        return data, mime
 
 
 def generate(prompt: str, images: list[Image] | None = None, system: str | None = None,
@@ -64,15 +104,27 @@ def generate(prompt: str, images: list[Image] | None = None, system: str | None 
         raise LLMError(st["reason"])
     s = settings()
     full = f"{system}\n\n{prompt}" if system else prompt  # Gemma: instructions go in the prompt
-    images = images or []
+    images = [_prep_image(b, m) for b, m in (images or [])]
     try:
         if s["backend"] == "gemini":
             from google.genai import types
             parts = [types.Part.from_bytes(data=b, mime_type=m) for b, m in images] + [full]
             cfg = types.GenerateContentConfig(temperature=temperature)
-            resp = _retry(lambda: _gemini(s["gemini_key"]).models.generate_content(
-                model=s["model"], contents=parts, config=cfg))
-            text = resp.text or ""
+            models = [s["model"]] + ([s["fallback_model"]] if s["fallback_model"] and s["fallback_model"] != s["model"] else [])
+            text, last = None, None
+            for m in models:
+                try:
+                    resp = _retry(lambda m=m: _gemini(s["gemini_key"]).models.generate_content(model=m, contents=parts, config=cfg))
+                    text = resp.text
+                    if not text:
+                        raise LLMError("The model returned no text (the content may have been blocked).")
+                    break
+                except LLMError as e:
+                    last = e
+                    if any(k in str(e) for k in NO_FALLBACK):
+                        break
+            if text is None:
+                raise LLMError(_friendly(str(last)))
         else:
             msg = {"role": "user", "content": full}
             if images:
@@ -89,7 +141,7 @@ def generate(prompt: str, images: list[Image] | None = None, system: str | None 
         raise
     except Exception as e:  # noqa: BLE001
         LAST_ERROR["generate"] = str(e)
-        raise LLMError(str(e)) from e
+        raise LLMError(_friendly(str(e))) from e
 
 
 def can_transcribe() -> bool:

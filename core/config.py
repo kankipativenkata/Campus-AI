@@ -44,12 +44,15 @@ def secret(key: str, default=None):
 
 def settings() -> dict:
     key = secret("GEMINI_API_KEY")
+    model = secret("GEMMA_MODEL", "gemma-4-26b-a4b-it")
+    fallback = secret("FALLBACK_MODEL") or ("gemma-4-31b-it" if model != "gemma-4-31b-it" else "gemma-4-26b-a4b-it")
     return {
         "gemini_key": key,
         "backend": str(secret("LLM_BACKEND") or ("gemini" if key else "none")).lower(),
-        "model": secret("GEMMA_MODEL", "gemma-4-26b-a4b-it"),
+        "model": model,
+        "fallback_model": fallback,
         "embed_model": secret("EMBED_MODEL", "gemini-embedding-001"),
-        "transcribe_model": secret("TRANSCRIBE_MODEL","gemini-3.8-flash"),
+        "transcribe_model": secret("TRANSCRIBE_MODEL", "gemini-2.5-flash"),
         "ollama_url": secret("OLLAMA_URL", "http://localhost:11434"),
         "ollama_model": secret("OLLAMA_MODEL", "gemma4"),
         "ollama_embed_model": secret("OLLAMA_EMBED_MODEL", "nomic-embed-text"),
